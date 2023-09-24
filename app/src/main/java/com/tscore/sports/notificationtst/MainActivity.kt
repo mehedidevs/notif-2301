@@ -13,21 +13,24 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.NotificationCompat
 
 class MainActivity : AppCompatActivity() {
-    lateinit var manager: NotificationManager
-    lateinit var chanel: NotificationChannel
-    lateinit var builder: NotificationCompat.Builder
 
-    val channelID = "com.tscore.sports.test-channel"
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        manager = getSystemService(NOTIFICATION_SERVICE) as NotificationManager
+
 
 
         findViewById<Button>(R.id.showNotificationBtn).setOnClickListener {
+
+            lateinit var chanel: NotificationChannel
+            lateinit var builder: NotificationCompat.Builder
+
+            val channelID = "com.tscore.sports.test-channel"
+            val manager: NotificationManager = getSystemService(NOTIFICATION_SERVICE) as NotificationManager
+
             Toast.makeText(this, "Click", Toast.LENGTH_SHORT).show()
 
             val intent = Intent(this, NotificationActivity::class.java)
